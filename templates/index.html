@@ -9,6 +9,13 @@
 <h3>Hi {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Guest{% endif %}!</h3>
 
 {% if current_user.is_authenticated %}
+    <h3>Want to create a new Room?</h3>
+    <a href="create-room"><button>Create Room</button></a>
+{% endif %}
+
+
+
+{% if current_user.is_authenticated %}
     <h3>My rooms</h3>
     <ul>
         {% for room in rooms %}
@@ -16,5 +23,15 @@
         {% endfor %}
     </ul>
 {% endif %}
+
+<p> {% if current_user.is_authenticated %}{% else %} Please signup if you dont have an account <a href="signup"><button>Sign Up</button></a> {% endif %}</p> 
+
+
+<p> {% if current_user.is_authenticated %}{% else %} Please Login if you have an account <button onclick="location.href='login'" type="button">login</button> {% endif %}</p>
+
+
+<p> {% if current_user.is_authenticated %}<button onclick="location.href='logout'" type="button">logout</button>{% else %} {% endif %}</p>
+
+
 </body>
 </html>
